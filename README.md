@@ -8,6 +8,7 @@ Website made in pure:
 - HTML
 - CSS
 - JavaScript
+- SVG
 
 ## Website
 
