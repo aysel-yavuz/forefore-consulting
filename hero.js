@@ -730,6 +730,8 @@ var SEPARATION = 100,
         container = document.createElement('div');
 
         hero.appendChild(container);
+
+        console.log('Paulo', hero.clientWidth);
  
         camera = new THREE.PerspectiveCamera(120, hero.clientWidth / hero.clientHeight, 1, 10000);
         camera.position.z = 1000;
