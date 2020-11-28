@@ -773,8 +773,6 @@ var SEPARATION = 100,
         var parent = hero.parentElement;
         parent.addEventListener('mousemove', onDocumentMouseMove, false);
         parent.addEventListener('mouseleave', onDocumentMouseLeave, false);
-        parent.addEventListener('touchstart', onDocumentTouchStart, false);
-        parent.addEventListener('touchmove', onDocumentTouchMove, false);
  
         window.addEventListener('resize', onWindowResize, false);
     }
@@ -806,24 +804,7 @@ var SEPARATION = 100,
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
     }
- 
-    function onDocumentTouchStart(event) {
-        if (event.touches.length === 1) {
-            event.preventDefault();
-            mouseX = event.touches[0].pageX - windowHalfX;
-            mouseY = event.touches[0].pageY - windowHalfY;
-        }
-    }
- 
-    function onDocumentTouchMove(event) {
-        if (event.touches.length === 1) {
-            event.preventDefault();
-            mouseX = event.touches[0].pageX - windowHalfX;
-            mouseY = event.touches[0].pageY - windowHalfY;
-        }
-    }
- 
- 
+    
     function animate() {
         requestAnimationFrame(animate);
         render();
