@@ -706,6 +706,7 @@ fragmentShader:"precision mediump float;\nuniform lowp int renderType;\nuniform 
 fragmentShader:"uniform vec3 color;\nuniform sampler2D map;\nuniform float opacity;\nuniform int fogType;\nuniform vec3 fogColor;\nuniform float fogDensity;\nuniform float fogNear;\nuniform float fogFar;\nuniform float alphaTest;\nvarying vec2 vUV;\nvoid main() {\nvec4 texture = texture2D( map, vUV );\nif ( texture.a < alphaTest ) discard;\ngl_FragColor = vec4( color * texture.xyz, texture.a * opacity );\nif ( fogType > 0 ) {\nfloat depth = gl_FragCoord.z / gl_FragCoord.w;\nfloat fogFactor = 0.0;\nif ( fogType == 1 ) {\nfogFactor = smoothstep( fogNear, fogFar, depth );\n} else {\nconst float LOG2 = 1.442695;\nfloat fogFactor = exp2( - fogDensity * fogDensity * depth * depth * LOG2 );\nfogFactor = 1.0 - clamp( fogFactor, 0.0, 1.0 );\n}\ngl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );\n}\n}"}};
 
 
+var hero = document.getElementById('hero');
 var SEPARATION = 100,
         AMOUNTX = 100,
         AMOUNTY = 70;
@@ -718,9 +719,8 @@ var SEPARATION = 100,
     var mouseX = 85,
         mouseY = -342;
  
-    const hero = document.getElementById('hero');
-    var windowHalfX = hero.innerWidth / 2;
-    var windowHalfY = hero.innerHeight / 2;
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
  
     init();
     animate();
@@ -728,12 +728,9 @@ var SEPARATION = 100,
     function init() {
  
         container = document.createElement('div');
-
         hero.appendChild(container);
-
-        console.log('Paulo', hero.clientWidth);
  
-        camera = new THREE.PerspectiveCamera(120, hero.clientWidth / hero.clientHeight, 1, 10000);
+        camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 10000);
         camera.position.z = 1000;
  
         scene = new THREE.Scene();
@@ -770,100 +767,82 @@ var SEPARATION = 100,
         }
  
         renderer = new THREE.CanvasRenderer();
-        renderer.setSize(hero.innerWidth, hero.innerHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
  
-        document.addEventListener('mousemove', onDocumentMouseMove, false);
-        document.addEventListener('touchstart', onDocumentTouchStart, false);
-        document.addEventListener('touchmove', onDocumentTouchMove, false);
- 
-        //
-
+        var parent = hero.parentElement;
+        parent.addEventListener('mousemove', onDocumentMouseMove, false);
+        parent.addEventListener('mouseleave', onDocumentMouseLeave, false);
+        parent.addEventListener('touchstart', onDocumentTouchStart, false);
+        parent.addEventListener('touchmove', onDocumentTouchMove, false);
  
         window.addEventListener('resize', onWindowResize, false);
- 
     }
  
     function onWindowResize() {
- 
-        windowHalfX = hero.innerWidth / 2;
-        windowHalfY = hero.innerHeight / 2;
- 
-        camera.aspect = hero.innerWidth / hero.innerHeight;
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+        camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
- 
-        renderer.setSize(hero.innerWidth, hero.innerHeight);
- 
+        renderer.setSize(window.innerWidth, window.innerHeight);
     }
  
-    //
- 
+    var mouseMove = null;
+    function onDocumentMouseLeave(event) {
+        var obj=event.relatedTarget;
+        while(obj!=null){
+            if(obj==this){
+                return;
+            }
+            obj=obj.parentNode;
+        }
+        if (mouseMove) { clearTimeout(mouseMove); }
+        var mouseMove = setTimeout(() => {
+            mouseY = -200;
+        }, 1000);
+    }
+
     function onDocumentMouseMove(event) {
- 
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
- 
     }
  
     function onDocumentTouchStart(event) {
- 
         if (event.touches.length === 1) {
- 
             event.preventDefault();
- 
             mouseX = event.touches[0].pageX - windowHalfX;
             mouseY = event.touches[0].pageY - windowHalfY;
- 
         }
- 
     }
  
     function onDocumentTouchMove(event) {
- 
         if (event.touches.length === 1) {
- 
             event.preventDefault();
- 
             mouseX = event.touches[0].pageX - windowHalfX;
             mouseY = event.touches[0].pageY - windowHalfY;
- 
         }
- 
     }
  
-    //
  
     function animate() {
- 
         requestAnimationFrame(animate);
- 
         render();
- 
- 
     }
  
     function render() {
- 
         camera.position.x += (mouseX - camera.position.x) * .05;
         camera.position.y += (-mouseY - camera.position.y) * .05;
         camera.lookAt(scene.position);
  
         var i = 0;
- 
         for (var ix = 0; ix < AMOUNTX; ix++) {
- 
             for (var iy = 0; iy < AMOUNTY; iy++) {
- 
                 particle = particles[i++];
                 particle.position.y = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
                 particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 2 + (Math.sin((iy + count) * 0.5) + 1) * 2;
- 
             }
- 
         }
  
         renderer.render(scene, camera);
- 
         count += 0.1;
- 
     }
