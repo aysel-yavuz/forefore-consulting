@@ -4,7 +4,7 @@
     --primary-dark: #0e5793;
     --secondary: #7AC66A;
     --warning: #E7475E;
-    --text: #333;
+    --text: #444;
     --light: #fff;
 }
 body {
@@ -16,6 +16,7 @@ body {
     font-family: helvetica, tahoma, arial;
     font-size: 14px;
     padding-top: 50px;
+    color: var(--text);
 }
 * {
     cursor: default;
@@ -32,7 +33,11 @@ h2 {
     font-size: 1.5rem;
     font-weight: normal;
 }
-p {
+h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+p, li {
     font-size: 1.2rem;
 }
 a,
@@ -42,7 +47,7 @@ a:active {
     color: var(--primary);
     cursor: pointer;
 }
-.fcc-logo {
+.ffc-logo {
     height: 30px;
     margin: 10px 20px;
     vertical-align: middle;
@@ -56,7 +61,7 @@ a:active {
     left: 0;
     z-index: 90;
 }
-.fcc-menu {
+.ffc-menu {
     position: fixed;
     z-index: 99;
     top: 0;
@@ -67,33 +72,33 @@ a:active {
     animation: center-animate 1s ease;
     overflow: hidden;
 }
-.fcc-menu.opened {
+.ffc-menu.opened {
     width: 50%;
 }
-.ffc-nav .fcc-menu, .ffc-nav li {
+.ffc-nav .ffc-menu, .ffc-nav li {
     margin: 0;
     padding: 0;
     list-style: none;
     display: block;
 }
-.ffc-nav .fcc-menu li a {
+.ffc-nav .ffc-menu li a {
     padding: 0 20px;
     line-height: 50px;
     text-decoration: none;
     display: inline-block;
 }
-.ffc-nav .fcc-menu li a,
-.ffc-nav .fcc-menu li a:hover,
-.ffc-nav .fcc-menu li a:active,
-.ffc-nav .fcc-menu li a:visited {
+.ffc-nav .ffc-menu li a,
+.ffc-nav .ffc-menu li a:hover,
+.ffc-nav .ffc-menu li a:active,
+.ffc-nav .ffc-menu li a:visited {
     color: var(--primary);
     width: 100%;
 }
-.ffc-nav .fcc-menu li a:hover {
+.ffc-nav .ffc-menu li a:hover {
     color: var(--light);
     background-color: var(--primary-dark);
 }
-#fcc-menu-bg {
+#ffc-menu-bg {
     display: none;
     position: fixed;
     top: 0;
@@ -103,21 +108,21 @@ a:active {
     background-color: rgba(0,0,0,.5);
     z-index: 98;
 }
-#fcc-menu-bg.opened {
+#ffc-menu-bg.opened {
     display: block;
 }
-.fcc-hero {
+.ffc-hero {
     position: relative;
     height: 500px;
     overflow-y: hidden;
 }
-.fcc-hero-content {
+.ffc-hero-content {
     position: relative;
     z-index: 2;
     width: 100%;
     text-align: center;
 }
-.fcc-hero-bg {
+.ffc-hero-bg {
     z-index: 1;
     position: absolute;
     top: 0;
@@ -138,30 +143,30 @@ a:active {
     margin: 0px;
     overflow: hidden;
 }
-.fcc-hero h1 {
+.ffc-hero h1 {
     margin: 30px;
     font-size: 2.6rem;
 }
-.fcc-hero h1, 
-.fcc-hero h2 {
+.ffc-hero h1, 
+.ffc-hero h2 {
     color: var(--light);
 }
-.fcc-hero h2 {
+.ffc-hero h2 {
     max-width: 300px;
     margin: 0 auto 40px;
     font-size: 1.2rem;
 }
-.fcc-hero span {
+.ffc-hero span {
     display: inline-block;
     width: 80px;
     height: 80px;
     color: #fff;
 }
-.fcc-hero span img {
+.ffc-hero span img {
     width: 100%;
     filter: invert(100%);
 }
-.fcc-nav-icon {
+.ffc-nav-icon {
     position: absolute;
     top: 0;
     right: 0;
@@ -172,16 +177,17 @@ a:active {
 #intro {
     background-color: #ddd;
 }
-#solutions {
+#process {
     background-color: var(--secondary);
     color: var(--light);
     min-height: 400px;
 }
-#solutions blockquote h2 {
+#process blockquote h2 {
     color: var(--light);
     font-style: italic;
 }
 #team {
+    background-color: #ddd;
     min-height: 400px;
 }
 #caseStudy {
@@ -192,6 +198,40 @@ a:active {
 #contact {
     background-color: #777;
     color: var(--light);
+}
+.ffc-card {
+    display: inline-block;
+    background-color: #fff;
+    margin-right: 60px;
+    margin-bottom: 40px;
+    width: 240px;
+    height: auto;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+}
+
+.ffc-card h3 {
+    padding: 5px 20px;
+    font-size: 1.3rem;
+}
+
+.ffc-card p {
+    padding: 0 20px;
+    font-size: 1rem;
+}
+.ffc-capacity {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: #aaa;
+}
+#contact a,
+#contact a:active,
+#contact a:visited,
+#contact a:hover,
+#contact a:hover {
+    color: white;
 }
 
 
@@ -204,28 +244,28 @@ a:active {
         position: relative;
         background-color: var(--light);
     }
-    .fcc-hero h1 {
+    .ffc-hero h1 {
         margin-top: 60px;
         font-size: 3rem;
     }
-    .fcc-hero h2 {
+    .ffc-hero h2 {
         max-width: 440px;
         font-size: 1.5rem;
     }
-    #fcc-menu-bg.opened {
+    #ffc-menu-bg.opened {
         display: none;
     }
-    #fcc-menu-bg {
+    #ffc-menu-bg {
         display: none;
     }
-    .ffc-nav .fcc-menu {
+    .ffc-nav .ffc-menu {
         position: relative;
         width: auto;
         height: auto;
         display: inline-block;
         vertical-align: middle;
     }
-    .ffc-nav .fcc-menu, .ffc-nav li {
+    .ffc-nav .ffc-menu, .ffc-nav li {
         display: inline-block;
     }
 }
