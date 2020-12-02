@@ -2,7 +2,7 @@
     --primary-light: #6fb4eb;
     --primary: #3E99E5;
     --primary-dark: #0e5793;
-    --secondary: #7AC66A;
+    --secondary: #61b64f;
     --warning: #E7475E;
     --text: #444;
     --light: #fff;
@@ -276,7 +276,7 @@ a:active {
 .ffc-button {
     display: inline-block;
     border: 1px solid white;
-    background-color: #30ac25;
+    background-color: #61b64f;
     padding: 0 40px;
     line-height: 44px;
     text-transform: uppercase;
