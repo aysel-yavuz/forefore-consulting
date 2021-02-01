@@ -16,14 +16,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-family: helvetica, tahoma, arial;
-    font-size: 10px;
     padding-top: 50px;
     color: var(--text);
     background-color: #eee;
 }
 * {
     cursor: default;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 *[onclick],
 *[onclick] > * {
@@ -53,7 +52,7 @@ main {
     margin: 0 auto;
 }
 main h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin: 15px 0;
     color: #145890;
@@ -185,12 +184,12 @@ main h1 {
 }
 .ffc-hero span {
     display: inline-block;
-    width: 80px;
+    width: 180px;
     height: 80px;
     color: #fff;
 }
 .ffc-hero span img {
-    width: 100%;
+    width: 60px;
     filter: invert(100%);
 }
 .ffc-nav-icon {
@@ -204,14 +203,32 @@ main h1 {
 #intro {
     background-color: #ddd;
 }
+.strong {
+    font-weight: bolder;
+}
 #how {
-    background-color: var(--secondary);
-    color: var(--light);
-    min-height: 400px;
+    background-color: #ffe25e;
 }
 #how blockquote h2 {
     color: var(--light);
     font-style: italic;
+}
+#how .cell {
+    position: relative;
+}
+#how p {
+    z-index: 2;
+    position: relative;
+}
+.bg-number {
+    z-index: 1;
+    position: absolute;
+    font-size: 150px;
+    color: #fff;
+    top: -10px;
+    left: 35%;
+    font-weight: bolder;
+    opacity: 0.5;
 }
 #team {
     background-color: #ddd;
@@ -230,32 +247,65 @@ main h1 {
 #contact h1 {
     margin-bottom: 20px;
 }
-.ffc-card {
+.ffc-card-group {
     display: inline-block;
     background-color: #fff;
     margin-right: 60px;
     margin-bottom: 40px;
-    width: 240px;
+    width: 100%;
     height: auto;
     -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
 }
 
-.ffc-card h3 {
-    padding: 5px 20px;
-    font-size: 1.3rem;
+.ffc-card {
+    display: inline-block;
+    width: 210px;
+    margin: 4px 8px;
+    text-align: center;
 }
 
+.ffc-card img {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.glide__arrow {
+    background-color: #bbb !important;
+    padding: 25px 15px !important;
+}
+
+.glide__arrow--left {
+    left: -5em !important;
+}
+
+.glide__arrow--right {
+    right: -7em !important;
+}
+
+.ffc-card h3 {
+    padding: 5px 20px;
+    font-size: 1.6rem;
+    color: var(--primary-dark);
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
 .ffc-card p {
     padding: 0 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
 }
 .ffc-capacity {
     display: inline-block;
-    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    margin-bottom: 15px;
     font-style: italic;
-    color: #aaa;
+    color: #999;
 }
 #contact a,
 #contact a:active,
@@ -299,6 +349,15 @@ main h1 {
     height: 80px;
     z-index: 4;
     opacity: .5;
+}
+
+#solutions {
+    background-color: #ddd;
+}
+
+#solutions h4 {
+    margin-top: 20px;
+    font-weight: bolder;
 }
 
 
