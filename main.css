@@ -1,406 +1,493 @@
 :root {
-    --primary-light: #6fb4eb;
-    --primary: #3E99E5;
-    --primary-dark: #0e5793;
-    --secondary: #61b64f;
-    --warning: #E7475E;
-    --text: #444;
-    --light: #fff;
+  --primary-light: #6fb4eb;
+  --primary: #3e99e5;
+  --primary-dark: #0e5793;
+  --secondary: #61b64f;
+  --warning: #e7475e;
+  --text: #444;
+  --light: #fff;
 }
 html {
-    font-size: 10px;
+  font-size: 10px;
 }
 body {
-    font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    font-family: helvetica, tahoma, arial;
-    padding-top: 50px;
-    color: var(--text);
-    background-color: #eee;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: helvetica, tahoma, arial;
+  padding-top: 40px;
+  color: var(--text);
+  background-color: #eee;
 }
 * {
-    cursor: default;
-    font-size: 1.6rem;
+  cursor: default;
+  font-size: 1.6rem;
 }
 *[onclick],
 *[onclick] > * {
-    cursor: pointer;
+  cursor: pointer;
 }
 h1 {
-    font-size: 2rem;
-    font-weight: 400;
+  font-size: 2rem;
+  font-weight: 400;
 }
 h2 {
-    font-size: 2.5rem;
-    font-weight: normal;
+  font-size: 2.5rem;
+  font-weight: normal;
 }
 h4 {
-    font-size: 1.2rem;
-    font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 a,
 a:hover,
 a:visited,
 a:active {
-    color: var(--primary);
-    cursor: pointer;
+  color: var(--primary);
+  cursor: pointer;
 }
 main {
-    max-width: 920px;
-    margin: 0 auto;
+  max-width: 920px;
+  margin: 0 auto;
 }
 main h1 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin: 15px 0;
-    color: #145890;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #145890;
 }
 .ffc-logo {
-    height: 28px;
-    margin: -1px 6px 0 20px;
-    vertical-align: middle;
+  height: 26px;
+  margin: -1px 6px 0 10px;
+  vertical-align: middle;
 }
 .ffc-nav {
-    background-color: #145890;
-    height: 44px;
-    font-size: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 90;
+  background-color: #145890;
+  height: 44px;
+  font-size: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 90;
 }
 .ffc-nav span {
-    font-size: 2rem;
-    color:#fff;
-    display: inline-block;
-    font-weight: bolder;
-    line-height: 44px;
-    vertical-align: middle;
+  font-size: 2rem;
+  color: #fff;
+  display: inline-block;
+  font-weight: bolder;
+  line-height: 44px;
+  vertical-align: middle;
 }
 .ffc-nav span:last-of-type {
-    font-weight: 200;
-    margin-top: -1px;
-    margin-left: 7px;
+  font-weight: 200;
+  margin-top: -1px;
+  margin-left: 7px;
 }
-.ffc-nav .ffc-menu, .ffc-nav li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: block;
+.ffc-nav .ffc-menu,
+.ffc-nav li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
 }
 .ffc-menu {
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    width: 0;
-    background-color: #145890;
-    height: calc(100vh);
-    animation: center-animate 1s ease;
-    overflow: hidden;
-    padding-right: 20px;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 0;
+  background-color: #145890;
+  height: calc(100vh);
+  animation: center-animate 1s ease;
+  overflow: hidden;
+  padding-right: 20px;
 }
 .ffc-menu.opened {
-    width: 50%;
+  width: 50%;
 }
 .ffc-nav .ffc-menu li a {
-    padding: 0 20px;
-    line-height: 44px;
-    text-decoration: none;
-    display: inline-block;
+  padding: 0 20px;
+  line-height: 44px;
+  text-decoration: none;
+  display: inline-block;
 }
 .ffc-nav .ffc-menu li a,
 .ffc-nav .ffc-menu li a:hover,
 .ffc-nav .ffc-menu li a:active,
 .ffc-nav .ffc-menu li a:visited {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    color: #fff;
-    width: 100%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  color: #fff;
+  width: 100%;
 }
 .ffc-nav .ffc-menu li a:hover {
-    color: var(--primary-dark);
-    background-color: var(--light);
+  color: var(--primary-dark);
+  background-color: var(--light);
 }
 #ffc-menu-bg {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100vh);
-    background-color: rgba(0,0,0,.5);
-    z-index: 98;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 98;
 }
 #ffc-menu-bg.opened {
-    display: block;
+  display: block;
 }
 .ffc-hero {
-    position: relative;
-    height: 500px;
-    overflow-y: hidden;
+  position: relative;
+  height: 500px;
+  overflow-y: hidden;
 }
 .ffc-hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
 }
 .ffc-hero-bg {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 500px;
-    background-color: var(--primary-light);
-    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#6fb4eb', endColorstr='#1B79C5');
-    background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
-    background-size: 100%;
-    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, var(--primary-light)), color-stop(100%, var(--primary-dark)));
-    background-image: -webkit-linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-    background-image: -moz-linear-gradient(45deg, var(--primary-light), var(--primary-dark));
-    background-image: -ms-linear-gradient(45deg, var(--primary-light) 0, var(--primary-dark) 100%);
-    background-image: -o-linear-gradient(45deg, var(--primary-light), var(--primary-dark));
-    background-image: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-    text-align: center;
-    margin: 0px;
-    overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 500px;
+  background-color: var(--primary-light);
+  filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#6fb4eb', endColorstr='#1B79C5');
+  background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
+  background-size: 100%;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    100% 100%,
+    color-stop(0, var(--primary-light)),
+    color-stop(100%, var(--primary-dark))
+  );
+  background-image: -webkit-linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  background-image: -moz-linear-gradient(
+    45deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  background-image: -ms-linear-gradient(
+    45deg,
+    var(--primary-light) 0,
+    var(--primary-dark) 100%
+  );
+  background-image: -o-linear-gradient(
+    45deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  background-image: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  text-align: center;
+  margin: 0px;
+  overflow: hidden;
 }
 .ffc-hero h1 {
-    font-size: 2.6rem;
+  font-size: 2.6rem;
 }
-.ffc-hero h1, 
+.ffc-hero h1,
 .ffc-hero h2 {
-    color: var(--light);
+  color: var(--light);
 }
 .ffc-hero h2 {
-    max-width: 300px;
-    margin: 80px auto 40px;
-    font-size: 1rem;
+  max-width: 90%;
+  margin: 80px auto 40px;
+  font-size: 1.8rem;
 }
 .ffc-hero span {
-    display: inline-block;
-    width: 180px;
-    height: 80px;
-    color: #fff;
+  display: inline-block;
+  width: 180px;
+  height: 80px;
+  color: #fff;
 }
 .ffc-hero span img {
-    width: 60px;
-    filter: invert(100%);
+  width: 60px;
+  filter: invert(100%);
 }
 .ffc-nav-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 24px;
-    font-size: 1.3rem;
-    line-height: 50px;
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  padding: 0 24px;
+  font-size: 1.9rem;
+  line-height: 50px;
+  color: #ddd;
 }
 #intro {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 .strong {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 #how {
-    background-color: #ffe25e;
+  background-color: #ffe25e;
 }
 #how blockquote h2 {
-    color: var(--light);
-    font-style: italic;
+  color: var(--light);
+  font-style: italic;
 }
 #how .cell {
-    position: relative;
+  position: relative;
 }
 #how p {
-    z-index: 2;
-    position: relative;
+  z-index: 2;
+  position: relative;
 }
 .bg-number {
-    z-index: 1;
-    position: absolute;
-    font-size: 150px;
-    color: #fff;
-    top: -10px;
-    left: 35%;
-    font-weight: bolder;
-    opacity: 0.5;
+  z-index: 1;
+  position: absolute;
+  font-size: 150px;
+  color: #fff;
+  top: -30px;
+  left: 35%;
+  font-weight: bolder;
+  opacity: 0.5;
 }
 #team {
-    background-color: #ddd;
-    min-height: 400px;
+  background-color: #ddd;
+  min-height: 400px;
 }
 #caseStudy {
-    background-color: var(--primary);
-    color: var(--light);
-    min-height: 400px;
+  min-height: 400px;
+}
+.cropped-img {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.cropped-img img {
+  position: absolute;
+  bottom: 0;
 }
 #contact {
-    background-color: #777;
-    color: var(--light);
-    line-height: 44px;
+  background-color: #145890;
+  color: var(--light);
+  line-height: 44px;
 }
 #contact h1 {
-    margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+#contact .ffc-button {
+  background-color: #ffe25e;
+  color: #000 !important;
+  font-size: 1.3rem;
 }
 .ffc-card-group {
-    display: inline-block;
-    background-color: #fff;
-    margin-right: 60px;
-    margin-bottom: 40px;
-    width: 100%;
-    height: auto;
-    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.35);
+  display: inline-block;
+  background-color: #fff;
+  margin-right: 60px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: auto;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.35);
 }
-
 .ffc-card {
-    display: inline-block;
-    width: 210px;
-    margin: 4px 8px;
-    text-align: center;
+  display: inline-block;
+  width: 210px;
+  margin: 4px 8px;
+  text-align: center;
 }
-
 .ffc-card img {
-    margin-top: 10px;
-    border-radius: 50%;
+  margin-top: 10px;
+  border-radius: 50%;
 }
-
 .glide__arrow {
-    background-color: #bbb !important;
-    padding: 25px 15px !important;
+  background-color: #bbb !important;
+  padding: 25px 15px !important;
 }
-
 .glide__arrow--left {
-    left: -5em !important;
+  left: -2.2em !important;
 }
-
 .glide__arrow--right {
-    right: -7em !important;
+  right: -2.2em !important;
 }
-
 .ffc-card h3 {
-    padding: 5px 20px;
-    font-size: 1.6rem;
-    color: var(--primary-dark);
-    font-weight: bold;
-    margin: 5px 0 0 0;
-    padding: 0;
+  padding: 5px 20px;
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  font-weight: bold;
+  margin: 5px 0 0 0;
+  padding: 0;
 }
 .ffc-card p {
-    padding: 0 20px;
-    font-size: 1.2rem;
-    text-align: left;
+  padding: 0 20px;
+  font-size: 1.2rem;
+  text-align: left;
 }
 .ffc-capacity {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
-    white-space: nowrap;
-    margin-bottom: 15px;
-    font-style: italic;
-    color: #999;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #999;
 }
 #contact a,
 #contact a:active,
 #contact a:visited,
 #contact a:hover,
 #contact a:hover {
-    color: white;
+  color: white;
 }
-
 #description {
-    position: relative;
-    height: 550px;
-    overflow: hidden;
+  position: relative;
+  height: 550px;
+  overflow: hidden;
 }
-
 #description div {
-    position: absolute;
-    top: 40px;
-    left: 27%;
-    font-size: 4rem;
-    z-index: 4;
-    width: 250px;
+  position: absolute;
+  top: 40px;
+  left: 27%;
+  font-size: 4rem;
+  z-index: 4;
+  width: 250px;
 }
-
 #description img.ffc-desc-bg {
-    position: absolute;
-    bottom: -60%;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    height: auto;
-    min-height: 100%;
+  position: absolute;
+  bottom: -60%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: auto;
+  min-height: 100%;
 }
-
 #description img.ffc-desc-logo {
-    position: absolute;
-    top: 300px;
-    right: 32%;
-    height: 80px;
-    z-index: 4;
-    opacity: .5;
+  position: absolute;
+  top: 300px;
+  right: 32%;
+  height: 80px;
+  z-index: 4;
+  opacity: 0.5;
 }
-
 #solutions {
-    background-color: #ddd;
+  background-color: #ddd;
 }
-
 #solutions h4 {
-    margin-top: 20px;
-    font-weight: bolder;
-}
-
-
-@media screen and (min-width: 768px) {
-    body {
-        padding-top: 40px;
-    }
-    .ffc-nav {
-        position: fixed;
-        background-color: #145890;
-    }
-    .ffc-hero h1 {
-        margin-top: 60px;
-        font-size: 3rem;
-    }
-    .ffc-hero h2 {
-        max-width: 560px;
-        font-size: 2rem;
-    }
-    #ffc-menu-bg.opened {
-        display: none;
-    }
-    #ffc-menu-bg {
-        display: none;
-    }
-    .ffc-nav .ffc-menu {
-        position: relative;
-        float: right;
-        width: auto;
-        height: auto;
-        padding-right: 20px;
-        vertical-align: middle;
-    }
-    .ffc-nav .ffc-menu, .ffc-nav li {
-        display: inline-block;
-    }
+  font-size: 1.6rem;
+  margin-top: 20px;
+  font-weight: bolder;
 }
 .ffc-button {
+  display: inline-block;
+  border: 1px solid white;
+  background-color: #61b64f;
+  padding: 0 40px;
+  line-height: 44px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#faq {
+  background-color: #ddd;
+}
+#faq h2 {
+  font-size: 1.6rem;
+  font-weight: bolder;
+}
+.ffc-margin-horizontal-3 {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+footer {
+  text-align: center;
+  height: 200px;
+  padding: 50px 0 100px;
+  line-height: 44px;
+}
+footer a {
+  color: #145890;
+}
+footer p {
+  color: #777;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 40px;
+  }
+  .ffc-nav {
+    position: fixed;
+    background-color: #145890;
+  }
+  .glide__arrow--left {
+    left: -5em !important;
+  }
+  .glide__arrow--right {
+    right: -5em !important;
+  }
+  .ffc-logo {
+    height: 28px;
+    margin: -1px 6px 0 20px;
+    vertical-align: middle;
+  }
+  .ffc-hero h1 {
+    margin-top: 60px;
+    font-size: 3rem;
+  }
+  .ffc-hero h2 {
+    max-width: 300px;
+    margin: 80px auto 40px;
+    font-size: 1rem;
+  }
+  .ffc-hero h2 {
+    max-width: 560px;
+    font-size: 2rem;
+  }
+  #ffc-menu-bg.opened {
+    display: none;
+  }
+  #ffc-menu-bg {
+    display: none;
+  }
+  .ffc-nav .ffc-menu {
+    position: relative;
+    float: right;
+    width: auto;
+    height: auto;
+    padding-right: 20px;
+    vertical-align: middle;
+  }
+  .ffc-nav .ffc-menu,
+  .ffc-nav li {
     display: inline-block;
-    border: 1px solid white;
-    background-color: #61b64f;
-    padding: 0 40px;
-    line-height: 44px;
-    text-transform: uppercase;
-    font-weight: bold;
+  }
+  .ffc-nav-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 24px;
+    font-size: 1.3rem;
+    line-height: 50px;
+  }
+  .ffc-margin-horizontal-3 {
+      padding-right: initial;
+      padding-left: initial;
+  }
+  #contact .ffc-button {
+    font-size: 1.5rem;
+  }
 }
